@@ -15,4 +15,8 @@ class Matrix
   def rows
     matrix
   end
+
+  def columns
+    matrix.transpose
+  end
 end
