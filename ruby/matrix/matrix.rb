@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Matrix
   attr_accessor :matrix
 
