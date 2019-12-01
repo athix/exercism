@@ -1,8 +1,11 @@
-=begin
-Write your code for the 'Grep' exercise in this file. Make the tests in
-`grep_test.rb` pass.
-
-To get started with TDD, see the `README.md` file in your
-`ruby/grep` directory.
-=end
-
+class Grep
+  def self.grep(pattern, flags, files)
+    matches = []
+    files.each do |file|
+      open(file).each_line do |line|
+        matches << line.strip if line.include?(pattern)
+      end
+    end
+    matches.size > 1 ? matches : matches.first
+  end
+end
