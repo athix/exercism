@@ -1,20 +1,8 @@
 class Matrix
-  attr_accessor :matrix
+  attr_reader :rows, :columns
 
   def initialize(matrix)
-    rows = matrix.split("\n")
-    self.matrix = []
-
-    rows.each do |row|
-      self.matrix << row.split(' ').map(&:to_i)
-    end
-  end
-
-  def rows
-    matrix
-  end
-
-  def columns
-    matrix.transpose
+    @rows = matrix.each_line.map{ |line| line.split.map(&:to_i) }
+    @columns = @rows.transpose
   end
 end
